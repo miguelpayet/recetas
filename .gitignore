@@ -1,0 +1,14 @@
+*.jpg
+*.log
+*.png
+*.sql
+*.swp
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+common_settings.py
+ga*.js
+settings.py
+static/
+venv/
