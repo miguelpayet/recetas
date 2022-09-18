@@ -7,7 +7,11 @@ class Medida(models.Model):
     plural = models.CharField(max_length=3, blank=True, null=True)
     ocultar = models.IntegerField(blank=True, null=True)
 
+    def __str__(self):
+        return self.nombre
+
     class Meta:
         managed = False
         db_table = 'medida'
-
+        verbose_name = 'Medida'
+        verbose_name_plural = 'Medidas'

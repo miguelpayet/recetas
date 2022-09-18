@@ -8,6 +8,9 @@ class Insumo(models.Model):
     categoriainsumo = models.ForeignKey('CategoriaInsumo', on_delete=models.CASCADE, db_column='idcategoriainsumo', blank=True, null=True)
     descripcion = models.CharField(max_length=512, blank=True, null=True)
 
+    def __lt__(self, other):
+        return self.nombre < other.nombre
+
     def __str__(self):
         return self.nombre
 
