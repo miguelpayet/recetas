@@ -1,5 +1,5 @@
 from django.contrib import admin
-from recetas_app.models.dificultad import Dificultad
+from recetas.models.dificultad import Dificultad
 
 
 class DificultadAdmin(admin.ModelAdmin):

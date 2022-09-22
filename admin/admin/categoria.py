@@ -1,5 +1,5 @@
 from django.contrib import admin
-from recetas_app.models.categoria import Categoria
+from recetas.models import Categoria
 
 
 class CategoriaAdmin(admin.ModelAdmin):

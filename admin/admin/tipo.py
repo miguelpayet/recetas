@@ -1,5 +1,5 @@
 from django.contrib import admin
-from recetas_app.models.tipo import Tipo
+from recetas.models import Tipo
 
 
 class TipoAdmin(admin.ModelAdmin):

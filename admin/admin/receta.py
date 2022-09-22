@@ -1,8 +1,8 @@
 from django.contrib import admin
-from recetas_app.models.receta import Receta
+from recetas.models import Receta
 import nested_admin
 
-from recetas_app.models.ingrediente import Ingrediente
+from recetas.models import Ingrediente
 
 
 class IngredienteAdmin(nested_admin.NestedTabularInline):

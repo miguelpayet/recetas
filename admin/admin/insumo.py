@@ -1,5 +1,5 @@
 from django.contrib import admin
-from recetas_app.models.insumo import Insumo
+from recetas.models import Insumo
 
 
 class InsumoAdmin(admin.ModelAdmin):
