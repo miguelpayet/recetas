@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+{% load my_markdown %}
+
+<html lang="es-pe">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ random.nombre }}</title>
+</head>
+<body>
+</body>
+<div class="receta">
+    <h1>{{ random.nombre }}</h1>
+    <div class="descripcion">
+        {{ random.descripcion | my_markdown }}
+    </div>
+    <div class="porciones">
+        {{ random.porciones }} porciones
+    </div>
+    <h2>ingredientes</h2>
+    <table class="ingredientes">
+        <thead>
+        <th class="nombre">ingrediente</th>
+        <th class="cantidad">cantidad</th>
+        <th class="medida">medida</th>
+        <th class="indicaciones">indicaciones</th>
+        </thead>
+        <tbody>
+        {% for ing in random.ingrediente_set.all %}
+        <tr>
+            <td>{{ ing.insumo.nombre }}</td>
+            <td>{{ ing.cantidad }}</td>
+            <td>{{ ing.medida }}</td>
+            <td>{% if ing.indicaciones %}{{ ing.indicaciones }}{%endif%}</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    <h2>preparacion</h2>
+    <div class="instrucciones">
+        {{ random.instrucciones | my_markdown }}
+    </div>
+</div>
+<p>hay {{ cantidad }} recetas en el sistema pero {{ visibles }} son visibles.</p>
+</html>

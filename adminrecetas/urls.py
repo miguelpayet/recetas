@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
-from admin.views import admin_index
+from adminrecetas.views import admin_index
 from django.conf.urls import include
 
 urlpatterns = [
