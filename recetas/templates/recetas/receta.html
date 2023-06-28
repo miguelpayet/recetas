@@ -5,17 +5,17 @@
 <html lang="es-pe">
 <head>
     <meta charset="UTF-8">
-    <title>{{ random.nombre }}</title>
+    <title>{{ receta.nombre }}</title>
 </head>
 <body>
 </body>
 <div class="receta">
-    <h1>{{ random.nombre }}</h1>
+    <h1>{{ receta.nombre }}</h1>
     <div class="descripcion">
-        {{ random.descripcion | my_markdown }}
+        {{ receta.descripcion | my_markdown }}
     </div>
     <div class="porciones">
-        {{ random.porciones }} porciones
+        {{ receta.porciones }} porciones
     </div>
     <h2>ingredientes</h2>
     <table class="ingredientes">
@@ -26,7 +26,7 @@
         <th class="indicaciones">indicaciones</th>
         </thead>
         <tbody>
-        {% for ing in random.ingrediente_set.all %}
+        {% for ing in receta.ingrediente_set.all %}
         <tr>
             <td>{{ ing.insumo.nombre }}</td>
             <td>{{ ing.cantidad }}</td>
@@ -38,8 +38,7 @@
     </table>
     <h2>preparacion</h2>
     <div class="instrucciones">
-        {{ random.instrucciones | my_markdown }}
+        {{ receta.instrucciones | my_markdown }}
     </div>
 </div>
-<p>hay {{ cantidad }} recetas en el sistema pero {{ visibles }} son visibles.</p>
 </html>

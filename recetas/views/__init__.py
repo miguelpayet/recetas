@@ -1,1 +1,2 @@
-from .index_view import index_view
+from .index import index
+from .receta import RecetaView

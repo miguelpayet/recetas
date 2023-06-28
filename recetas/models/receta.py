@@ -27,6 +27,11 @@ class Receta(models.Model):
         posicion = randint(1, total)
         return recetas[posicion - 1]
 
+    @classmethod
+    def obtener_ultimos(cls):
+        recetas = Receta.objects.order_by('-actualizacion')[:5]
+        return recetas.all()
+
     class Meta:
         managed = False
         db_table = 'receta'
