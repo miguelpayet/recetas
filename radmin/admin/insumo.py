@@ -6,6 +6,7 @@ class InsumoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'categoriainsumo')
     list_per_page = 100
     ordering = ('nombre',)
+    search_fields = ['nombre']
 
 
 admin.site.register(Insumo, InsumoAdmin)

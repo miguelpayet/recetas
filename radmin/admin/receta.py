@@ -1,19 +1,27 @@
 from django.contrib import admin
+
 from recetas.models import Receta
-import nested_admin
 
 from recetas.models import Ingrediente
 
 
-class IngredienteAdmin(nested_admin.NestedTabularInline):
+class IngredienteAdmin(admin.TabularInline):
     extra = 0
-    fields = ('insumo', 'medida', 'cantidad', 'indicaciones',)
+    fields = ('insumo', 'medida', 'cantidad',)
+    readonly_fields = ('insumo', 'medida', 'cantidad',)
+    model = Ingrediente
+
+
+class IngredienteInline(admin.TabularInline):
+    autocomplete_fields = ['insumo']
+    extra = 1
+    fields = ('insumo', 'cantidad', 'medida', 'indicaciones',)
     model = Ingrediente
 
 
 class RecetaAdmin(admin.ModelAdmin):
     fields = ('nombre', 'descripcion', 'porciones', 'instrucciones', 'tipo', 'dificultad', 'visible',)
-    inlines = [IngredienteAdmin]
+    inlines = [IngredienteInline]
     list_display = ('nombre', 'origen', 'prioridad', 'visible')
     list_per_page = 100
     ordering = ('origen', 'prioridad', 'nombre',)

@@ -3,7 +3,7 @@ from recetas.models import Categoria
 
 
 class CategoriaAdmin(admin.ModelAdmin):
-    pass
+    app_label: 'radmin'
 
 
 admin.site.register(Categoria, CategoriaAdmin)
